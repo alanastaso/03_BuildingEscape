@@ -9,5 +9,8 @@ public class BuildingEscapeEditorTarget : TargetRules
 	{
 		Type = TargetType.Editor;
 		ExtraModuleNames.Add("BuildingEscape");
+  
+        bUseUnityBuild = false;
+        bUsePCHFiles = false;
 	}
 }

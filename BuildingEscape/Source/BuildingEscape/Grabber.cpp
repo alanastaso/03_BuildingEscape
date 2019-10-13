@@ -1,7 +1,10 @@
 // Copyright Ben Tristem 2016.
 
-#include "BuildingEscape.h"
 #include "Grabber.h"
+#include "BuildingEscape.h"
+#include "Components/PrimitiveComponent.h"
+#include "GameFramework/Actor.h"
+#include "GameFramework/PlayerController.h"
 
 #define OUT
 
@@ -10,7 +13,6 @@ UGrabber::UGrabber()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	bWantsBeginPlay = true;
 	PrimaryComponentTick.bCanEverTick = true;
 }
 
@@ -71,11 +73,10 @@ void UGrabber::Grab() {
 	if (ActorHit)
 	{
 		if (!PhysicsHandle) { return; }
-		PhysicsHandle->GrabComponent(
+		PhysicsHandle->GrabComponentAtLocation(
 			ComponentToGrab,
 			NAME_None, // no bones needed
-			ComponentToGrab->GetOwner()->GetActorLocation(),
-			true // allow rotation
+			ComponentToGrab->GetOwner()->GetActorLocation()
 		);
 	}
 }
