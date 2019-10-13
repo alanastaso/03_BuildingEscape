@@ -16,3 +16,9 @@ BuildingEscape/Content/StarterContent/HDRI
 *.suo
 *.VC.opendb
 *.sln
+
+#######################
+# OSX Generated Files #
+#######################
+*.DS_Store
+*.xcworkspace
